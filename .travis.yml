@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t weno_v3/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run weno_v3/docker-react npm run test -- --coverage
